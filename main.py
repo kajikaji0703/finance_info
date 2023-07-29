@@ -12,7 +12,7 @@ import yfinance as yf # yahoo financeから株価情報を取得するための�
 import openai # openAIのchatGPTのAIを活用するための機能をインポート
 
 # アクセスの為のキーをopenai.api_keyに代入し、設定
-openai.api_key = "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"
+openai.api_key = "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"
 
 # @st.cache_dataで読み込みが早くなるように処理を保持しておける
 @st.cache_data
@@ -23,7 +23,7 @@ def run_gpt(company,info_mode, data ,term):
     if  info_mode=="財務諸表" or info_mode =="B/S:バランスシート"or info_mode == "キャッシュフロー":
         request_to_gpt =  company +"の"+ info_mode +"の以下の" +term + "分のデータを分析して　分かることを教えて下さい \n"+ data
     elif  info_mode == "株価":
-        request_to_gpt =  company +"の"+ info_mode +"の以下の" +term+ +"日分のデータ を分析して　分かることを教えて下さい \n"+ data
+        request_to_gpt =  company +"の"+ info_mode +"の以下の" +term +"日分のデータ を分析して　分かることを教えて下さい \n"+ data
     else:
         request_to_gpt = data[0] + data[1] + " リンクの内容を日本語で要約してください。内容は文字500文字以内で出力してください。"
     
@@ -126,7 +126,8 @@ if  info_mode != "ニュース":
         if info_mode != "株価":
             output_content_text = run_gpt(company,info_mode, df_data, "4年")
         elif info_mode == "株価":
-            output_content_text = run_gpt(company,info_mode, df_data,days)
+            days = str(days)
+            output_content_text = run_gpt(company,info_mode, df_data, days)
 
         # 代入された文字を表示
         st.write(output_content_text)
