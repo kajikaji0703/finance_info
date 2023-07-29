@@ -19,7 +19,7 @@ openai.api_key = "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"
 #ｇｐｔに　変数込みのプロンプトを入力し、　出力を返す関数
 def run_gpt(company,info_mode, data ,term):
     # リクエスト内容を決める  
-    st.write(term)
+    #st.write(term)
     if  info_mode=="財務諸表" or info_mode =="B/S:バランスシート"or info_mode == "キャッシュフロー":
         request_to_gpt =  company +"の"+ info_mode +"の以下の" +term + "分のデータを分析して　分かることを教えて下さい \n"+ data
     elif  info_mode == "株価":
