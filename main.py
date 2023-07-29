@@ -8,7 +8,7 @@ Created on Sun Jul 16 14:18:49 2023
 import streamlit as st # フロントエンドを扱うstreamlitの機能をインポート
 import pandas as pd # データフレームを扱う機能をインポート
 import yfinance as yf # yahoo financeから株価情報を取得するための機能をインポート
-import altair as alt # チャート可視化機能をインポート
+#import altair as alt # チャート可視化機能をインポート
 import openai # openAIのchatGPTのAIを活用するための機能をインポート
 
 # アクセスの為のキーをopenai.api_keyに代入し、設定
@@ -42,11 +42,6 @@ def run_gpt(company,info_mode, data ,term):
 
 st.title("金融情報分析アプリ") # タイトル
 # 取得したデータから抽出するための配列を生成し、companiesに代入
-
-#company = st.selectbox(
-#    '会社名を選択してください。',
-#    list(tickers.keys())
-#)
 
 company_list = pd.read_excel("data_j_edit.xlsx")
 company_list = company_list[company_list["規模コード"].isin([1,2,4])]
