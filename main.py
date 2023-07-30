@@ -12,7 +12,7 @@ import yfinance as yf # yahoo financeから株価情報を取得するための�
 import openai # openAIのchatGPTのAIを活用するための機能をインポート
 
 # アクセスの為のキーをopenai.api_keyに代入し、設定
-openai.api_key = "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"
+openai.api_key = "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"
 
 # @st.cache_dataで読み込みが早くなるように処理を保持しておける
 @st.cache_data
